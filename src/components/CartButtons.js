@@ -7,11 +7,11 @@ import styled from 'styled-components'
 const CartButtons = () => {
   return (
     <Wrapper>
-      <div className="container login-container">
-        <PersonAddAltOutlinedIcon className="icon icon-one"/><span>Login</span>
+      <div className="">
+        <PersonAddAltOutlinedIcon className="icon icon-one"/>
       </div>
-      <div className="container">
-        <ShoppingCartOutlinedIcon className="icon icon-two"/><span className="cart-amount">8</span><span>Basket</span>
+      <div className="">
+        <ShoppingCartOutlinedIcon className="icon icon-two"/>
       </div>
     </Wrapper>
   )
@@ -21,11 +21,12 @@ export default CartButtons
 
 const Wrapper = styled.div `
   display: flex;
-  column-gap: 2rem;
+  column-gap: 0.5em;
 
-.container {
-  display: flex;
-  align-items: center;
+
+  div {
+    display: flex;
+    align-items: center;
   span{
     margin-bottom: -0.8rem;
   }
@@ -35,7 +36,7 @@ const Wrapper = styled.div `
   position: relative;
 }
 
-.cart-amount {
+/* .cart-amount {
   position: absolute;
   padding: 0.5em;
   border-radius: 50%;
@@ -48,21 +49,6 @@ const Wrapper = styled.div `
   background: yellow;
   top: 20px;
   right: 80px;
-}
-
-.icon-one {
-  font-size: 2.5rem;
-}
-
-.icon-two {
-  font-size: 2.2rem;
-}
-
-span{
-  align-items: flex-end;
-}
-
-/* .icon:hover {
-  color: var(--clr-green-dark);
 } */
+
 `

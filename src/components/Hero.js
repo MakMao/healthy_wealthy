@@ -1,14 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Filters = () => {
+const Hero = () => {
   return (
-    <Container>Filter</Container>
+    <Container>Hero</Container>
   )
 }
 
 const Container = styled.div `
-  background-color: pink;
+  background-color: yellow;
 `
 
-export default Filters
+export default Hero

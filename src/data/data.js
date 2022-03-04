@@ -1,23 +1,27 @@
 const cardData = [
   {
     id: 1,
-    desc: "card one",
-    text: "asldfjas fasfjlasdjlfsdajf dsalkf sdlkfsdlkfasdjf sdl fsad flasdfj klfdjslfkjsdlf"
+    title: "Cash On Delivery",
+    desc: "Flexible payment options",
+    img: 'https://i.imgur.com/liGkUp4.png?1'
   },
   {
     id: 2,
-    desc: "card two",
-    text: "bxbxbxbxbbxbxbxbxbxbbxbxbxbxbxbxbxdlf"
+    title: "Lowest Price Guarantee",
+    desc: "Highest quality, great customer service, lowest prices.",
+    img: "https://i.imgur.com/VN4vugQ.png"
   },
   {
     id: 3,
-    desc: "card three",
-    text: "acccccccccccccccccccccccccccc cccccccccccccccccccccccccccccccccc"
+    title: "Loyalty Program",
+    desc: "Enjoy our generous loyalty rewards",
+    img: "https://i.imgur.com/m7omgLS.png?1"
   },
   {
     id: 4,
-    desc: "card four",
-    text: "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"
+    title: "Free Shipping",
+    desc: "No shipping fee charged",
+    img: "https://i.imgur.com/d7kvlfN.png?1"
   },
 ]
 

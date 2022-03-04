@@ -3,14 +3,12 @@ import data from '../data/data'
 import styled from 'styled-components'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
-import { position } from 'dom-helpers';
-
 
 const CardContainer = () => {
   const [index, setIndex] = useState(0)
   const [info, setInfo] = useState(data)
 
-  const handleChange = (val) =>{
+  const handleSlider = (val) =>{
     const length = data.length - 1
     if(val === 'inc'){
       setIndex((val) => val + 1 > length ? val = 0 : val + 1)
@@ -22,7 +20,7 @@ const CardContainer = () => {
 
   // useEffect(() => {
   //   let change = setInterval(() => {
-  //     handleChange('inc')
+  //     handleSlider('inc')
   //   }, 1000);
   //     return () => {
   //       clearInterval(change)
@@ -30,7 +28,7 @@ const CardContainer = () => {
   // },[index])
 
   return (
-    <Card >
+    <Container className="section slider-container">
       {info.map((item, cardIndex) => { 
 
         let place = 'left'
@@ -41,42 +39,61 @@ const CardContainer = () => {
           place ='right'
         }
 
-        const {id, desc, text} = item
+        const {id, title, desc, img} = item
        return (
         <article key={id} className={place}>
-          <h3>{desc}</h3>
-          <p>{text}</p>
-          <button className="arrow arrow-left" onClick={() => handleChange('dec')}>
+          <div className="one">
+            <h3>{title}</h3>
+            <p>{desc}</p>
+          </div>
+          <div className="two">
+            <img src={img} alt="" />
+          </div>
+          <button className="arrow arrow-left" onClick={() => handleSlider('dec')}>
           <ArrowBackIosNewIcon/>
           </button>
-          <button className="arrow arrow-right" onClick={() => handleChange('inc')}>
+          <button className="arrow arrow-right" onClick={() => handleSlider('inc')}>
           <ArrowForwardIosIcon/>
           </button>
       </article>
        )
       })}
-  </Card>
+  </Container>
   )
 }
 
-const Card = styled.section `
+const Container = styled.section `
   position: relative;
-  width: 80vw;
-  height: 350px;
+  overflow: hidden;
+  border: 2px solid brown;
+  width: 90vw;
+  height: 200px;
+  margin: 
   margin: 0 auto;
-  display: flex;
-  border: 2px solid red;
+  display: grid;
+  place-items: center;
+  @media (min-width: 768px){ 
+    display: none;
+  }
   
   article{
-    width: 450px;
-    padding: 1em;
+    padding: 2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 7px;
     opacity: 0;
-    height: 300px;
+    height: auto;
     border: 2px solid gray;
     position: absolute;
     left: 50%;
+    height: 100%;
+    width: 90%;
     transform: translateX(-50%);
     transition: var(--transition);
+    img{  
+      width: 100px;
+    }
   }
 
   .left {
@@ -96,16 +113,21 @@ const Card = styled.section `
   .arrow {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%)
+    transform: translateY(-50%);
+    border-radius: 50%;
+    padding: 0.2em;
+     
+    z-index: 9;
   }
 
-  .arrow-left {
+   .arrow-left {
     left: -12px;
   }
 
   .arrow-right {
     right: -12px;
-  }
+  } 
+
 
 ` 
 export default CardContainer

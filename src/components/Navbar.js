@@ -1,73 +1,68 @@
 import React from 'react'
 import styled from 'styled-components'
 import CartButtons from './CartButtons';
+import DensitySmallOutlinedIcon from '@mui/icons-material/DensitySmallOutlined';
+
 
 const Navbar = () => {
   return (
     <NavContainer>
-      <div className="small-screen">
-        <img className="logo" src="https://i.imgur.com/v7fdlQS.png" alt="" />
+      <div className="nav-container">
+      <div className="nav-header">
+        <div className="menu-icon">
+          <DensitySmallOutlinedIcon/>
+        </div>
+        <div className="loging-container">
+        <CartButtons/>
+        </div>
       </div>
-      <div className="big-screen">
-        <div className="screen-big-left">
-          <img className="logo" src="https://i.imgur.com/v7fdlQS.png" alt="" />
-          <button>Left button</button>
+      <form>
+        <div className="form-control">
+          <input type="text" placeholder="Search by prouduct.." />
         </div>
-        <div>
-          <ul>
-            <li>Shops</li>
-            <li>Offers</li>
-            <li>FAQ</li>
-            <li>Contact</li>
-          </ul>
-        </div>
-      <CartButtons/>
+      </form>
+      <h3 className="logo">Logo</h3>
       </div>
     </NavContainer>
   )
 }
 
 const NavContainer = styled.nav `
-
-.small-screen  {
-  display: flex;
-  padding: 0.5em;
-  justify-content: center;
-  border-bottom: 2px solid var(--clr-border);
-}
-
-.logo {
-  width: 140px;
-  height: 70px;
-}
-
-.big-screen {
-  display: none;
-  background: pink;
-  padding: 0.8em;
-}
-
-.screen-big-left {
-  display: flex;
-  gap: 2em;
-}
-
-ul {
-  display: flex;
-  gap: 2em;
-}
-
-
-@media (min-width: 1024px){
-  .small-screen {
-    display: none;
+  position: relative;
+  margin-bottom: 8em;
+  
+  .nav-container {
+    background-color: #088494;
+    padding: 0.7em;
+    position: fixed;
+    z-index: 5000;
+    top: 0;
+    left: 0;
+    width: 100%;
   }
-  .big-screen {
+
+  .nav-header {
     display: flex;
-    align-items: center;
+    color: #fff;
     justify-content: space-between;
+    align-items: center;
   }
-}
+
+  input{
+    width: 100%;
+  }
+
+  .logo {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-top: 0.7em;
+  }
+
+
+
+
 `
 
 export default Navbar
