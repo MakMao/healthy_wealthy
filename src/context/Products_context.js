@@ -1,30 +1,26 @@
-import React, { useContext, useEffect, useReducer } from "react"
+import React, { useContext, useEffect, useReducer, useState } from "react"
 import reducer from "../reducers/products_reducer"
 import { ACTIONS } from "../utils/actions"
 import axios from "axios"
-import {paginate} from '../utils/paginate'
 
 
 const initialState = {
-  // products: [],
+
   products_loading: false,
   products_error: false,
   discounted_products:[], 
   all_products: [],
-  modal_open: false,
   single_product_loading: false,
   single_products: [],
   single_product_error: false,
-  //filter
-  default_products: [],
-  filter_products: [],
-  sort: 'price-lowest'
+  open_menu: false
 }
 
 const ProductsContext = React.createContext()
 
 export const ProductProvider = ({children}) => {
   const [state, dispatch] = useReducer(reducer, initialState)
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
 
   const fetchData = async () => {
     dispatch({type: ACTIONS.LOAD_PRODUCTS_BEGIN})
@@ -39,45 +35,48 @@ export const ProductProvider = ({children}) => {
 
   const fetchSingleProduct = async (url) => {
     dispatch({type: ACTIONS.LOAD_SINGLE_PRODUCT})
-    try {
       const res = await axios.get(url)
       const singleProduct = res.data[0]
-      // console.log(singleProduct);
-      dispatch({type: ACTIONS.FETCH_SINGLE_PRODUCT, payload: singleProduct})
-    } catch (error) {
-      dispatch({type: ACTIONS.SINGLE_PRODUCT_ERROR})
-    }
+      if(singleProduct){
+        dispatch({type: ACTIONS.FETCH_SINGLE_PRODUCT, payload: singleProduct})
+      }else {
+        dispatch({type: ACTIONS.SINGLE_PRODUCT_ERROR})
+      }
+  }
+
+  const openMenu = () => {
+    dispatch({type: ACTIONS.MENU_OPEN})
+  }
+
+  const closeMenu = () => {
+    dispatch({type: ACTIONS.CLOSE_MENU})
   }
 
   useEffect(() => {
     fetchData()
   }, [])
 
-  const openModal = () => {
-    dispatch({type: ACTIONS.OPEN_MODAL})
-  }
-  const closeModal = () => {
-    dispatch({type: ACTIONS.CLOSE_MODAL})
+  const handleWidth = () => {
+    setWindowWidth(window.innerWidth)
   }
 
-  ///////////// Filter Stuff
+  useEffect(() => {
+    window.addEventListener('resize', handleWidth)
+    dispatch({type: ACTIONS.CLOSE_MENU})
+    return () => {
+      window.removeEventListener('resize', handleWidth)
+    }
+  }, [windowWidth > 768])
 
-  const updateSort = (e) => {
-    // const name = e.target.name
-    const value = e.target.value
-    // dispatch({type: ACTIONS.UPDATE_SORT, payload: value})
-    console.log(value);
+  const value = {
+    ...state,
+    fetchSingleProduct,
+    openMenu,
+    closeMenu
   }
-
 
   return (
-    <ProductsContext.Provider value={{
-      ...state,
-      openModal,
-      closeModal,
-      fetchSingleProduct,
-      updateSort
-    }}>
+    <ProductsContext.Provider value={value}>
       {children}
     </ProductsContext.Provider>
   )

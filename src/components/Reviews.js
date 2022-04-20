@@ -27,6 +27,7 @@ export default Reviews
 const Wrapper = styled.div `
   display: flex;
   justify-content: center;
+  align-items: center;
 
   svg {
     font-size: 1.2rem;

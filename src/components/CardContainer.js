@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, {useState } from 'react'
 import data from '../data/data'
 import styled from 'styled-components'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
@@ -21,59 +21,64 @@ const CardContainer = () => {
   // useEffect(() => {
   //   let change = setInterval(() => {
   //     handleSlider('inc')
-  //   }, 1000);
+  //   }, 2000);
   //     return () => {
   //       clearInterval(change)
   //     }
   // },[index])
 
   return (
-    <Container className="section slider-container">
-      {info.map((item, cardIndex) => { 
-
-        let place = 'left'
-        if(cardIndex === index) {
-          place = 'center'
-        }
-        if(cardIndex === index - 1 || (index === 0 && cardIndex === data.length - 1)){
-          place ='right'
-        }
-
-        const {id, title, desc, img} = item
-       return (
-        <article key={id} className={place}>
-          <div className="one">
-            <h3>{title}</h3>
-            <p>{desc}</p>
-          </div>
-          <div className="two">
-            <img src={img} alt="" />
-          </div>
-          <button className="arrow arrow-left" onClick={() => handleSlider('dec')}>
-          <ArrowBackIosNewIcon/>
-          </button>
-          <button className="arrow arrow-right" onClick={() => handleSlider('inc')}>
-          <ArrowForwardIosIcon/>
-          </button>
-      </article>
-       )
-      })}
+    <Container>
+        <div className="section slider-container">
+          {info.map((item, cardIndex) => {
+            let place = 'left'
+            if(cardIndex === index) {
+              place = 'center'
+            }
+            if(cardIndex === index - 1 || (index === 0 && cardIndex === data.length - 1)){
+              place ='right'
+            }
+            const {id, title, desc, img} = item
+           return (
+            <article key={id} className={place}>
+              <div className="one">
+                <h3 className="card-title">{title}</h3>
+                <p>{desc}</p>
+              </div>
+              <div className="two">
+                <img src={img} alt="" />
+              </div>
+              <button className="arrow arrow-left" onClick={() => handleSlider('dec')}>
+              <ArrowBackIosNewIcon/>
+              </button>
+              <button className="arrow arrow-right" onClick={() => handleSlider('inc')}>
+              <ArrowForwardIosIcon/>
+              </button>
+          </article>
+           )
+          })}
+        </div>
   </Container>
   )
 }
 
 const Container = styled.section `
-  position: relative;
-  overflow: hidden;
-  border: 2px solid brown;
-  width: 90vw;
-  height: 200px;
-  margin: 
-  margin: 0 auto;
-  display: grid;
-  place-items: center;
-  @media (min-width: 768px){ 
-    display: none;
+  margin: 3em 0;
+
+  .slider-container{
+    position: relative;
+    overflow: hidden;
+    max-width: 500px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    @media (min-width: 768px){ 
+      display: none;
+    }
+  }
+
+  .card-title{
+    margin-bottom: 0.5em;
   }
   
   article{
@@ -84,7 +89,7 @@ const Container = styled.section `
     border-radius: 7px;
     opacity: 0;
     height: auto;
-    border: 2px solid gray;
+    border: 2px solid var(--clr-cyan-regular);
     position: absolute;
     left: 50%;
     height: 100%;
@@ -113,21 +118,29 @@ const Container = styled.section `
   .arrow {
     position: absolute;
     top: 50%;
+    color: var(--clr-cyan-dark);
+    height: 35px;
+    z-index: 51;
+    background: var(--clr-cyan-v-light);
+    width: 35px;
     transform: translateY(-50%);
     border-radius: 50%;
+    border: 2px solid var(--clr-cyan-regular);
     padding: 0.2em;
-     
+    display: flex;
+    align-items: center;
+    justify-content: center;
     z-index: 9;
   }
 
    .arrow-left {
-    left: -12px;
+    left: -18px;
+    padding-right: 0.3em;
   }
 
   .arrow-right {
-    right: -12px;
+    right: -18px;
+    padding-left: 0.3em;
   } 
-
-
 ` 
 export default CardContainer

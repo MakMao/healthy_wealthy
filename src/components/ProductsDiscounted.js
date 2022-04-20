@@ -46,6 +46,7 @@ const Container = styled.div `
   }
   h2 {
     text-align: center;
+    margin-bottom: 1.5em;
   }
   .all-btn{ 
     text-align: center;

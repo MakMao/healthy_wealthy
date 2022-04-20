@@ -1,29 +1,24 @@
 import React from 'react'
-import { useProductsContext } from '../context/Products_context'
-import Loading from './Loading'
-import Error from './Error'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 import Reviews from './Reviews'
 import ProductDiscount from './ProductDiscount'
 import ProductPrice from './ProductPrice'
 
-const Products = ({brand, id, img, name, price, quantity, reviews, flavours, categories}) => {
+const Products = ({brand, id, img, name, price, reviews}) => {
   return (
       <Container>
-      <div className="product" key={id}>
-        <div className="top">
-        <ProductDiscount img={img} price={price}/>
-        </div>
+      <div className="product" key={id} >
+        <Link to={`/products/${id}`} className="top">
+          <ProductDiscount img={img} price={price}/>
+        </Link>
         <div className="bottom">
           <div className="product-info">
-            <h3>{name}</h3>
-            <p>{brand}</p>
+            <h3 className="product-name">{name}</h3>
+            <p className="product-brand">{brand}</p>
           </div>
           <Reviews feedback={reviews}/>
           <ProductPrice price={price}/>
-         <div className="btn-container">
-           <button>add</button>
-         </div>
         </div>
       </div>
   </Container>
@@ -32,14 +27,14 @@ const Products = ({brand, id, img, name, price, quantity, reviews, flavours, cat
 
 
 const Container = styled.div `
-
   .product {
     border: 2px solid var(--clr-cyan-regular);
     display: grid;
     grid-template-rows: auto 200px; 
   }
-
+  
   .top {
+    cursor: pointer;
     position: relative;
     background-color: var(--clr-cyan-light);
     display: grid;
@@ -53,18 +48,23 @@ const Container = styled.div `
     }
   }
 
+  .product-name {
+    text-transform: uppercase;
+  }
+
+  .product-brand {
+    margin-top: 0.5em ;
+  }
+
   .bottom {
     align-self: flex-end;
-    padding: 1em 0;
+    padding: 1.5em 0;
     text-align: center;
     width: 100%;
     height: 100%;
     h3 {
       text-align: center;
       margin-bottom: 0;
-    }
-    p {
-      text-align: center;
     }
     .product-info {
       height: 70px;

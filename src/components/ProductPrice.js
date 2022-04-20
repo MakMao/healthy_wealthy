@@ -27,7 +27,8 @@ const Container = styled.div `
 
   .old{
     text-decoration: line-through;
-    color: gray
+    color: gray;
+    opacity: 0.6;
   }
 
 `

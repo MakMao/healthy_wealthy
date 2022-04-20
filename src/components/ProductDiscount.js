@@ -7,7 +7,7 @@ const ProductDiscount = ({img, price}) => {
       <img src={img} alt="" />
         {price.old && (
       <div className="discount">
-        <h4>{(((price.new - price.old) / price.old ) * -100).toFixed()} % DISCOUNT!</h4>
+        <h4>{(((price.new - price.old) / price.old ) * -100).toFixed()}% DISCOUNT!</h4>
       </div>
     )}
     </Container>
@@ -16,15 +16,13 @@ const ProductDiscount = ({img, price}) => {
 
 const Container = styled.div `
 
-
 .discount {
     position: absolute;
-    text-align: center;
     bottom: 0;
+    left: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    left: 0;
     width: 100%;
     height: 30px;
     background-color: var(--clr-cyan-dark);

@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
-
 const ProductSingleImg = ({images= [{url: ''}]}) => {
   const [main, setMain] = useState([0])
 
@@ -13,59 +12,55 @@ const ProductSingleImg = ({images= [{url: ''}]}) => {
 
   return (
     <Container>
-          <div className="main-images"  >
-            {images.map((image, index) => {
-              return (
-                <div key={index} className={`main-img ${help[index]}`}>
-                    <img className="theimg" 
-                    src={image} alt="" 
-                    style={{transform: `translateX(-${main}00%)`}} />
-                </div>
+      <div className="main-images">
+        {images.map((image, index) => {
+          return (
+            <div key={index} className={`main-img ${help[index]}`}>
+                <img className="def-img" 
+                  src={image} alt="" 
+                  style={{transform: `translateX(-${main}00%)`}} />
+            </div>
+          ) 
+        })}
+      </div>
+      {images.length > 1 && <div className="all-images" style={{display: 'grid', gridTemplateColumns: `repeat(${images.length}, 80px)` }}>
+        {images.map((image, index) => {
+          return (
+            <div key={index}
+              onClick={() => images[setMain(index)]}  
+              className={image === images[main] ? "single-img active" : 'single-img'}>
+              <img key={index}
+                src={image} 
+                alt="product's image" />   
+            </div>
               ) 
             })}
-          </div>
-        {images.length > 1 && <div className="all-images" style={{display: 'grid', gridTemplateColumns: `repeat(${images.length}, 80px)` }}>
-          {images.map((image, index) => {
-            return (
-              <div key={index}
-                onClick={() => images[setMain(index)]}  
-                className={image === images[main] ? "single-img active" : 'single-img'}>
-                <img key={index}
-                  src={image} 
-                  alt="" />   
-              </div>
-                ) 
-              })}
-        </div>}
-
+      </div>}
     </Container>
   )
 }
 const Container = styled.div `
-@media (min-width: 768px){
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  display: block;
-  border: 2px solid green;
-}
+  margin-bottom: 4em;
+  @media (min-width: 768px){
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border: 2px solid var(--clr-cyan-regular);
+    display: block;
+  }
 
   .main-images {
     margin: 0 auto;
-    /* transition: 1s all; */
-    //
     width: 250px; 
     height: 300px;
     object-fit: contain;
     position: relative;
     overflow: hidden;
-    border: 5px solid brown;
   }
 
-  @media (min-width: 768px){
-    .main-images {
+@media (min-width: 768px){
+  .main-images {
       width: 100%;
-      /* background-color: yellow; */
       height: 55vw;
       max-height: 550px;
     }
@@ -73,8 +68,6 @@ const Container = styled.div `
   
   .main-img{
     position: absolute;
-    border: 2px solid green;
-    //
     width: 100%;
     height: 100%;
     display: flex;
@@ -82,12 +75,11 @@ const Container = styled.div `
     top: 0;
     left: 0;
     object-fit: contain;
-    /* transition: all 1s; */
   }
   
-  .theimg{
+  .def-img{
     padding: 2em 3em;
-    transition: 1s all;
+    transition: 0.3s all;
     max-height: 500px;
     width: 100%;
     object-fit: contain;
@@ -113,19 +105,19 @@ const Container = styled.div `
   .all-images {
     margin: 0 auto;
     grid-gap: 5px;
-    /* margin-top: 15em;  */
     height: 200px;
     padding: 2em 0;
     justify-content: center;
     width: 350px;
     place-items: center;
-    background-color: pink;
     .single-img.active{
-      border: 5px solid yellow;
+      border: 2px solid var(--clr-cyan-dark);
+      opacity: 1;
     }
     .single-img{
       height: 150px;
-      border: 2px solid red;
+      border: 2px solid var(--clr-cyan-regular);
+      opacity: 0.5;
       display: grid;
       place-items: center;
       cursor: pointer;
