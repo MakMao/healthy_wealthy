@@ -17,7 +17,6 @@ const promise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY)
 const CheckoutForm = () => {
   const {cart, total_amount, shipping_fee, clearCart} = useCartContext()
   const {user} = useUserContext()
-  console.log(user);
 
   const [succeeded, setSucceeded] = useState(false)
   const [error, setError] = useState(null)

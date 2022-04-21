@@ -31,7 +31,7 @@ const ProductSingleImg = ({images= [{url: ''}]}) => {
               className={image === images[main] ? "single-img active" : 'single-img'}>
               <img key={index}
                 src={image} 
-                alt="product's image" />   
+                alt="product's avatar" />   
             </div>
               ) 
             })}

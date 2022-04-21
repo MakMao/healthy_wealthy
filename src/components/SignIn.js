@@ -3,11 +3,11 @@ import { Formik, Form } from 'formik';
 import { TextField } from './TextField';
 import { useUserContext } from '../context/user_context';
 import styled from 'styled-components'
-import { Link, useNavigate } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
 import ReportIcon from '@mui/icons-material/Report';
 
 const SignIn = () => {
-  const {signIn, user, error, msg, setError, resetPassword, resetPsdMsg, setLoading} = useUserContext()
+  const {signIn, user, error, msg, setError, resetPassword, resetPsdMsg} = useUserContext()
 
   const [hideIt, setHideIt] = useState(false)
 

@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { useFilterContext } from '../context/Filters_context'
 import StarIcon from '@mui/icons-material/Star';
@@ -7,7 +7,7 @@ import {formatPrice} from '../utils/currency'
 
 
 const Filters = () => {
-  const {updateFilters, main, setMain, clearFilters, brands,  windowWidth, filters:{search, max_price, price, min_price, stock, discount, review}}= useFilterContext()
+  const {updateFilters, setMain, clearFilters, brands,  windowWidth, filters:{search, max_price, price, min_price, stock, discount, review}}= useFilterContext()
 
   const allRatings = Array.from({ length: 4 }, (_, index) => {
     return (

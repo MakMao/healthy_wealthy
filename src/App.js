@@ -10,11 +10,8 @@ import { useFilterContext } from './context/Filters_context';
 import CheckoutPage from './pages/CheckoutPage';
 import About from './pages/About';
 import FAQ from './pages/Faq';
-import Footer from './components/Footer';
 import SidebarMenu from './components/SidebarMenu';
 import { useProductsContext } from './context/Products_context';
-import styled from 'styled-components'
-
 
 function App() {
   const {modal_open} = useFilterContext()
@@ -35,7 +32,6 @@ function App() {
           <Route path="/about" element={<About/>}/>
           <Route path="/faq" element={<FAQ/>}/>
         </Routes>
-        {/* <Footer/> */}
       </Router>
   )
 }

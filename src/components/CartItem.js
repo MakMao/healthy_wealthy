@@ -1,6 +1,5 @@
 import React from 'react'
 import { useCartContext } from '../context/cart_context'
-import {Link, useParams} from 'react-router-dom'
 import {formatPrice} from '../utils/currency'
 import AmountButtons from './AmountButtons'
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
@@ -73,13 +72,16 @@ const Container = styled.div`
 
   .old-price{
     margin-right: 0.5em;
+    margin-bottom: 0.3em;
     color: gray;
     opacity: 0.6;
     text-decoration: line-through;
   }
 
-  .price-container{ 
-    display: flex;
+  @media (min-width: 768px){
+    .price-container{ 
+      display: flex;
+    }
   }
 
   .del-icon {

@@ -54,7 +54,6 @@ const cart_reducer = (state, action) => {
     return {...state, cart: []}
   }
   if(action.type === ACTIONS.DEL_CART_ITEM){
-    const {id} = action.payload
     const tempCart = state.cart.filter((item) => item.id !== action.payload)
     return {...state, cart: tempCart}
   }

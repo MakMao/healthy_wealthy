@@ -1,10 +1,10 @@
-import React, {useEffect, useRef, useState } from 'react';
+import React, {useEffect} from 'react';
 import { Formik, Form } from 'formik';
 import { TextField } from './TextField';
 import * as Yup from 'yup';
 import { useUserContext } from '../context/user_context';
 import styled from 'styled-components'
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 const SignUp = () => {

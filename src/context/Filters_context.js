@@ -84,7 +84,6 @@ export const FilterProvider = ({children}) => {
     if(name === 'category'){
       dispatch({type: ACTIONS.CLEAR_FILTERS, payload: {brands, setBrands}})
       target = e.target.textContent
-      console.log(target);
     }
     
     if(name === 'search'){

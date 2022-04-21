@@ -26,7 +26,7 @@ const SidebarMenu = () => {
         <div className="underline"></div>
         <div className="links-container">
           {links.map((item, i) => {
-            const {id, text, url} = item
+            const { text, url} = item
             return (
               <Link to={url} onClick={closeMenu} key={i}>
                 <p className="link" >{text === 'Checkout' ? user && text : text}</p>

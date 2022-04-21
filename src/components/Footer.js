@@ -1,15 +1,7 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import styled from 'styled-components'
 
 const Footer = () => {
-  const [sizePercentage, setSizePercentage] = useState(0)
-  const [sizeVH, setSizeVH] = useState(0)
-
-  const chooseHeight = window.innerHeight + 59 > document.body.scrollHeight ? true : false
-
-  console.log(window.innerHeight);
-  console.log(document.body.scrollHeight);
-  console.log(chooseHeight);
 
   return (
     <Wrapper className="the-footer">

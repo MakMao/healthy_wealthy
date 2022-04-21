@@ -20,7 +20,6 @@ export const UserProvider = ({children}) => {
     .catch(() => {
       setError(true)
       setLoading(false)
-      console.log(error);
     })
   }
   const logOut = () => {
