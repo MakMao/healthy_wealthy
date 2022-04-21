@@ -34,7 +34,7 @@ const Container = styled.div`
     margin: 0 auto;
     margin-bottom: 5em;
     max-width: 960px;
-    min-height: calc(100vh - 198px);
+    min-height: calc(100vh - 268px);
   }
 
   .faq-container {

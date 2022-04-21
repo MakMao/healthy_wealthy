@@ -76,12 +76,6 @@ const Navbar = () => {
 
 const NavContainer = styled.nav `
 
-/* .main-div {
-  width: 50%;
-  max-width: 1170px;
-  background: pink;
-} */
-
 .nav-container {
     position: fixed;
     background-color: var(--clr-cyan-dark);

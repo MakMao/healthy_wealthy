@@ -144,7 +144,7 @@ export const FilterProvider = ({children}) => {
     return () => {
       window.removeEventListener('resize', handleWidth)
     }
-  }, [])
+  }, [windowWidth > 768])
 
 
   const value = {

@@ -22,7 +22,8 @@ const Container = styled.div`
 .modal{ 
   position: fixed;
   width: 100%;
-  height: 100vh;
+  height: 100%;
+  overflow-y: scroll;
   top: 0;
   left: 0;
   transform: translateX(-100%);
