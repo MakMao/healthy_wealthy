@@ -16,14 +16,14 @@ const CardContainer = () => {
     }
   }
 
-  // useEffect(() => {
-  //   let change = setInterval(() => {
-  //     handleSlider('inc')
-  //   }, 1500);
-  //     return () => {
-  //       clearInterval(change)
-  //     }
-  // },[index])
+  useEffect(() => {
+    let change = setInterval(() => {
+      handleSlider('inc')
+    }, 1500);
+      return () => {
+        clearInterval(change)
+      }
+  },[index])
 
   return (
     <Container className="section slider-container">
