@@ -19,7 +19,7 @@ const CardContainer = () => {
   useEffect(() => {
     let change = setInterval(() => {
       handleSlider('inc')
-    }, 1500);
+    }, 5000);
       return () => {
         clearInterval(change)
       }
