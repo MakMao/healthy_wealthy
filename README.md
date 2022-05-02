@@ -9,6 +9,8 @@ Building an E-Commerce project using REACT (both frontend and backend).
 
 https://protein-store.netlify.app
 
+https://www.youtube.com/watch?v=IRi0MWeY9NY
+
 ### Screenshots
 
 ## My Process
@@ -19,3 +21,5 @@ I set up my own API with JSON, used firebase for login/sign in functions, stripe
 I do like to mention here that the main focus was on the frontend side of the project, however, as I was building this project it was tempting to include the backend part as well which I eventually did. As for the CSS, I used 'styled components' which I believe is the best approach when building a project with many components. That said, it's harder to write DRY code as applying BEM is very complicated when using styled components. I did spent a significant amount of time on the CSS.
 
 Please check the link above to see a preview of the Protein Store. 
+
+Additionally, I have added a YouTube video, in which I explained how I approaced things and what I have done, for transparency purposes. This video is in Dutch though.
