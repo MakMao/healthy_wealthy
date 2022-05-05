@@ -9,8 +9,6 @@ Building an E-Commerce project using REACT (both frontend and backend).
 
 https://protein-store.netlify.app
 
-https://www.youtube.com/watch?v=IRi0MWeY9NY
-
 ### Screenshots
 
 ## My Process
@@ -22,4 +20,3 @@ I do like to mention here that the main focus was on the frontend side of the pr
 
 Please check the link above to see a preview of the Protein Store. 
 
-Additionally, I have added a YouTube video, in which I explained how I approaced things and what I have done, for transparency purposes. This video is in Dutch though.
