@@ -7,7 +7,7 @@ Building an E-Commerce project using REACT (both frontend and backend).
 
 ### Links
 
-https://protein-store.netlify.app
+https://testing-healthy-wealthy.netlify.app/
 
 ### Screenshots
 
