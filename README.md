@@ -7,7 +7,7 @@ Building an E-Commerce project using REACT.
 
 ### Links
 
-https://testing-healthy-wealthy.netlify.app/
+https://the-protein-store.netlify.app/
 
 ### Screenshots
 
