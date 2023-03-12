@@ -3,7 +3,7 @@
 
 ## Overview
 
-Building an E-Commerce project using REACT (both frontend and backend).
+Building an E-Commerce project using REACT.
 
 ### Links
 
